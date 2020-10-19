@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
   <meta name="generator" content="Jekyll v4.1.1">
-  <title>Royce Crenshaw</title>
+  <title>Royce's Blog</title>
 
   <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/album/">
 
@@ -44,7 +44,7 @@
 <body>
   <header>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <a class="navbar-brand active" href="{% url 'home' %}">Royce Crenshaw</a>
+      <a class="navbar-brand" href="{% url 'home' %}">Royce Crenshaw</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -57,38 +57,29 @@
             <a class="nav-link" href="{% static 'Royce Crenshaw Resume - Data Engineer.pdf'%}">Resume</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'all_blogs'%}">Blog</a>
+            <a class="nav-link active" href="{% url 'all_blogs'%}">Blog</a>
           </li>
         </ul>
       </div>
     </nav>
   </header>
   <main role="main">
-    <section class="jumbotron text-center">
-      <div class="container">
-        <h1>Always curious. Always exploring.</h1>
-        <p class="lead text-muted">Hello, my name is Royce Crenshaw. I am an aspiring data engineer and data forecaster. I love finding trends in the data.</p>
-        <p>
-          <a href="mailto:royce.crenshaw@gmail.com" class="btn btn-primary my-2">Contact Me</a>
-        </p>
-        <img class="img-fluid", src="{% static 'Royce.jpg' %}", height="400", width="400" />
-      </div>
-    </section>
-    <div class="album py-5 bg-light">
-      <div class="container">
-        <div class="row">
-          {% for job in jobs.all %}
-          <div class="col-md-4">
-            <div class="card mb-4 shadow-sm">
-              <img class="bd-placeholder-img card-img-top" src="{{ job.image.url }}"></img>
-              <div class="card-body">
-                <p class="card-text">{{job.summary}}</p>
-              </div>
-            </div>
-          </div>
-          {% endfor %}
-        </div>
-      </div>
+    <div class="container">
+      <h1 class="text-center pt-3">Blog</h1>
+      <br />
+      <br />
+      <h2>Latest Post</h2>
+      <hr />
+      {% for blog in blogs.all %}
+      <a href="{% url 'detail' blog.id %}"><h3>{{ blog.title }}</h3></a>
+      {{ blog.pub_date_neat }}
+      <br />
+      <img class="img-fluid", src="{{blog.image.url}}" height="200", width="200">
+      <br />
+      <p>{{ blog.summary }}</p>
+      <br />
+      <br />
+      {% endfor %}
     </div>
   </main>
 </body>
