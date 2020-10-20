@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 't!^+)tx3wu!ch+!xli0ql=^otym8c(&@ic$im(&v32)99q252#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['134.122.123.18', 'localhost']
 
 
 # Application definition
@@ -81,8 +81,6 @@ DATABASES = {
         'NAME': 'portfoliodb',
         'USER': 'postgres',
         'PASSWORD': 'TexansSuck2020',
-        'HOST': 'localhost',
-        'PORT': '5433',
     }
 }
 
@@ -133,6 +131,6 @@ MEDIA_ROOT = BASE_DIR / 'media'
 MEDIA_URL = '/media/'
 
 try:
-    from local_settings import *
+    from .local_settings import *
 except ImportError:
     pass
