@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 't!^+)tx3wu!ch+!xli0ql=^otym8c(&@ic$im(&v32)99q252#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['134.122.123.18', 'localhost']
 
@@ -56,7 +56,7 @@ ROOT_URLCONF = 'portfolio.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['templates', 'portfolio/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -81,6 +81,8 @@ DATABASES = {
         'NAME': 'portfoliodb',
         'USER': 'postgres',
         'PASSWORD': 'TexansSuck2020',
+        'HOST': 'localhost',
+        'PORT': '5433',
     }
 }
 
@@ -124,10 +126,11 @@ USE_TZ = True
 STATICFILES_DIRS = [
     BASE_DIR / 'portfolio/static/'
 ]
+
 STATIC_ROOT = BASE_DIR / 'static'
 STATIC_URL = '/static/'
 
-MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_ROOT = BASE_DIR /'media'
 MEDIA_URL = '/media/'
 
 try:

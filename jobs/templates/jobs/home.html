@@ -1,0 +1,40 @@
+
+{% extends "portfolio/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<body>
+  <main role="main">
+    <section class="jumbotron text-center">
+      <div class="container">
+        <h1>Always curious. Always exploring.</h1>
+        <p class="lead text-muted">Hello, my name is Royce Crenshaw. I am an aspiring data engineer and data forecaster. I love finding trends in the data.</p>
+        <p>
+          <a href="mailto:royce.crenshaw@gmail.com" class="btn btn-primary my-2">Contact Me</a>
+        </p>
+        <img src="{% static 'RoyceCrenshaw.jpg' %}", width="300"/>
+      </div>
+    </section>
+    <h1>Professional Experience</h1>
+    <div class="album py-5 bg-light">
+      <div class="container">
+        <div class="row">
+          {% for job in jobs.all %}
+          <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+              <img class="bd-placeholder-img card-img-top" src="{{ job.image.url }}"></img>
+              <div class="card-body">
+                <p class="card-text">{{job.summary}}</p>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+
+{% endblock %}
