@@ -4,10 +4,11 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 import jobs.views
+import resume.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', jobs.views.home, name='home'),
-    path('blog/', include('blog.urls'),
-    )
+    path('blog/', include('blog.urls')),
+    path('resume/', resume.views.document, name='resume'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

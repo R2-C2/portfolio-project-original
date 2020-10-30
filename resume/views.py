@@ -1,3 +1,6 @@
 from django.shortcuts import render
+from .models import Resume
 
-# Create your views here.
+def document(request):
+	resumes = Resume.objects
+	return render(request, 'resume/document.html', {'resumes':resumes})
