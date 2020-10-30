@@ -31,14 +31,15 @@ ALLOWED_HOSTS = ['134.122.123.18', 'localhost']
 # Application definition
 
 INSTALLED_APPS = [
-    'blog.apps.BlogConfig',
-    'jobs.apps.JobsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'blog.apps.BlogConfig',
+    'jobs.apps.JobsConfig',
+    'resume.apps.ResumeConfig',
 ]
 
 MIDDLEWARE = [
