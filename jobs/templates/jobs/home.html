@@ -7,6 +7,15 @@
   #certificate:hover{
     transform: scale(1.05);
   }
+  IMG.centered{
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+  }
+  #job:hover{
+    transform: scale(1.01);
+  }
+
 </style>
 
 <body>
@@ -14,10 +23,9 @@
     <section class="jumbotron text-center">
       <div class="container">
         <h1>Always curious. Always exploring.</h1>
-        <p class="lead text-muted">Hello, my name is Royce Crenshaw. I am an aspiring data engineer and data forecaster. I love finding trends in the data.</p>
-        <p>
-          <a href="mailto:royce.crenshaw@gmail.com" class="btn btn-primary my-2">Contact Me</a>
-        </p>
+        <h3 class="lead text-muted">Hello, my name is Royce Crenshaw. I am an aspiring software engineer. I love problem solving adn creating new things.</h3>
+        <a href="mailto:royce.crenshaw@gmail.com" class="btn btn-primary my-2">Contact Me</a>
+        <br>
         <img src="{% static 'RoyceCrenshaw.jpg' %}", width="300"/>
       </div>
     </section>
@@ -27,11 +35,39 @@
       <div class="container">
         <div class="row">
           {% for job in jobs.all %}
-          <div class="col-md-4">
-            <div class="card mb-4 shadow-sm">
-              <img class="bd-placeholder-img card-img-top" src="{{ job.image.url }}"></img>
+          <div id="job" class="col-md-4">
+            <div id="job" class="card mb-4 shadow-sm">
+              <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="Coming Soon!">
+                <img class="centered" src="{{ job.image.url }}"></img>
+              </span>
+
+
+              <!-- TODO: Modal from Bootstrap
+              <button type="button" class="btn" data-toggle="modal">
+                <img class="rounded float-center" src="{{ job.image.url }}" height="100"></img>
+              </button>
+              <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="{{ job.title }}" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title">{{ job.title }}, {{ job.company }}</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      {{ job.summary }}
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+               -->
+
               <div class="card-body">
-                <p style="text-align: center" class="card-text">{{job.summary}}</p>
+                <p style="text-align: center;" class="card-text">{{ job.title }}</p>
               </div>
             </div>
           </div>
@@ -49,9 +85,9 @@
           {% for certificate in certificates.all %}
           <div class="col-md-4">
             <div id="certificate" class="card mb-4 shadow-sm">
-              <a href="{{ certificate.image.url }}"><img class="bd-placeholder-img card-img-top" src="{{ certificate.image.url }}"></img></a>
+              <a href="{{ certificate.image.url }}"><img class="bd-placeholder-img card-img-top" width="100" src="{{ certificate.image.url }}"></img></a>
               <div class="card-body">
-                <p style="text-align: center" class="card-text">{{certificate.summary}}</p>
+                <p style="text-align: center" class="card-text">{{ certificate.topic }}</p>
               </div>
             </div>
           </div>
