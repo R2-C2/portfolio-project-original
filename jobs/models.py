@@ -8,22 +8,22 @@ class Job(models.Model):
 	start_date = models.DateField()
 	end_date = models.DateField()
 
-	def __str__(self):
-		return self.title
-
-	def start_date_neat(self):
-		return self.start_date.strftime('%m/%Y')
-
-	def end_date_neat(self):
-		return self.end_date.strftime('%m/%Y')
+	# def __str__(self):
+	# 	return self.title
+	#
+	# def start_date_neat(self):
+	# 	return self.start_date.strftime('%m/%Y')
+	#
+	# def end_date_neat(self):
+	# 	return self.end_date.strftime('%m/%Y')
 
 class Certificate(models.Model):
 	image = models.ImageField(upload_to='images/')
 	issuer = models.CharField(max_length=200, blank=True)
 	topic = models.CharField(max_length=200, blank=True)
 
-	def __str__(self):
-		return self.topic
+	# def __str__(self):
+	# 	return self.topic
 
 
 '''
