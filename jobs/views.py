@@ -1,6 +1,9 @@
 from django.shortcuts import render
-from .models import Job
+from .models import Job, Certificate
 
 def home(request):
-	jobs = Job.objects
-	return render(request, 'jobs/home.html', {'jobs':jobs})
+	context = {
+        'jobs': Job.objects.all(),
+        'certificates': Certificate.objects.all(),
+    }
+	return render(request, 'jobs/home.html', context)
