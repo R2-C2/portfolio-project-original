@@ -26,7 +26,7 @@
         <h3 class="lead text-muted">Hello, my name is Royce Crenshaw. I am an aspiring software engineer. I love problem solving and creating new things.</h3>
         <a href="mailto:royce.crenshaw@gmail.com" class="btn btn-primary my-2">Contact Me</a>
         <br>
-        <img src="{% static 'RoyceCrenshaw.jpg' %}", width="300"/>
+        <img src="{% static 'RoyceCrenshaw.jpg' %}" alt="Royce Crenshaw" width="300"/>
       </div>
     </section>
 
@@ -38,7 +38,7 @@
           <div id="job" class="col-md-4">
             <div id="job" class="card mb-4 shadow-sm">
               <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="Coming Soon!">
-                <img class="centered" src="{{ job.image.url }}"></img>
+                <img class="centered" src="{{ job.image.url }}" alt="{{ job.company }} logo"></img>
               </span>
 
 
@@ -85,7 +85,7 @@
           {% for certificate in certificates.all %}
           <div class="col-md-4">
             <div id="certificate" class="card mb-4 shadow-sm">
-              <a href="{{ certificate.image.url }}"><img class="bd-placeholder-img card-img-top" width="100" src="{{ certificate.image.url }}"></img></a>
+              <a href="{{ certificate.image.url }}"><img class="bd-placeholder-img card-img-top" width="100" src="{{ certificate.image.url }}" alt="{{ certificate.topic }} certificate"></img></a>
               <div class="card-body">
                 <p style="text-align: center" class="card-text">{{ certificate.topic }}</p>
               </div>
